@@ -13,28 +13,34 @@ stopBtn.addEventListener('click', onStopClick);
 
 
 function onStartClick(e) { 
-  timerId = setTimeout(onStartClick, 1000);
+  timerId = setInterval(onStartClick, 1000);
   body.style.backgroundColor = getRandomHexColor();
   // localStorage.setItem('current-color', JSON.stringify(body.style.backgroundColor))
-  if (onStartClick) {
+  
+onDisabledStart();
+}
+
+  function onDisabledStart() {
+if (onStartClick) {
     startBtn.disabled = true;
     stopBtn.disabled = false;
-  }   
-
+  };
 }
-  
 
 function onStopClick(e) {
-  clearTimeout(timerId);
-  if(onStopClick) { 
-    startBtn.disabled = false;
-    stopBtn.disabled = true;
+  clearInterval(timerId);
+  onDisabledStop()
   }
   // body.style.backgroundColor = localStorage.getItem('current-color');
  
- }
+ 
 
-
+function onDisabledStop() {
+if(onStopClick) { 
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+  }
+}
 
  
 
