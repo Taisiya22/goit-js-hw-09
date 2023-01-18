@@ -1,19 +1,16 @@
 
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
 
-
-const text = document.getElementById('datetime-picker');
+const input = document.getElementById('datetime-picker');
 const startBtn = document.querySelector('button[data-start]');
 const daysSpan = document.querySelector('[data-days]');
 const hoursSpan = document.querySelector('[data-hours]');
 const minutesSpan = document.querySelector('[data-minutes]');
 const secondsSpan = document.querySelector('[data-seconds]');
 
-
-
 startBtn.disabled = true;
-let timeComponents = null;
 
 const options = {
   enableTime: true,
@@ -22,17 +19,16 @@ const options = {
   minuteIncrement: 1,
     onClose(selectedDates) {
       
-      if (selectedDates[0] <= new Date()) { 
-          alert("Please choose a date in the future");
+        if (selectedDates[0] <= new Date()) { 
+          Notiflix.Notify.failure("Please choose a date in the future");
           startBtn.disabled = true;
           return;
         }
-        
       startBtn.disabled = false;
   }
 }
 
-flatpickr(text, options);
+flatpickr(input, options);
 
 
 function convertMs(ms) {
@@ -56,15 +52,14 @@ function addLeadingZero(value) {
 
 startBtn.addEventListener('click', reverceTimer);
 
-function reverceTimer() {
-
-   let timerId = setInterval(() => {
-    const deltaTime = new Date(text.value) - new Date();
+   function reverceTimer() {
+   const timerId = setInterval(() => {
+    let deltaTime = new Date(input.value) - new Date();
            startBtn.disabled = true;
            let timeComponents = convertMs(deltaTime);
            console.log(timeComponents);
            showTimer(timeComponents);
-       if (deltaTime <= 0) {
+       if (deltaTime <= 1000) {
            startBtn.disabled = false;
            clearInterval(timerId);
         } 

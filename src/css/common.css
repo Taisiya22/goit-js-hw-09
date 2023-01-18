@@ -17,16 +17,23 @@ img {
   max-width: 100%;
 }
 
-/* button {
-  display: inline-flex;
-    margin-left: 4px;
-    margin-right: 4px;
-    text-transform: uppercase;
-    border: 0;
-    
-    color: #ffffff;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 24px;
-    border-radius: 3px;
-} */
+.timer {
+  display: flex;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.value {
+  font-size: xxx-large;
+}
+
+.label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
