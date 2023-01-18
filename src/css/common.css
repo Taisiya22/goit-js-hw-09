@@ -17,3 +17,16 @@ img {
   max-width: 100%;
 }
 
+/* button {
+  display: inline-flex;
+    margin-left: 4px;
+    margin-right: 4px;
+    text-transform: uppercase;
+    border: 0;
+    
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 3px;
+} */

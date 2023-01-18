@@ -13,7 +13,7 @@ stopBtn.addEventListener('click', onStopClick);
 
 
 function onStartClick(e) { 
-  timerId = setInterval(onStartClick, 1000);
+  timerId = setTimeout(onStartClick, 1000);
   body.style.backgroundColor = getRandomHexColor();
   // localStorage.setItem('current-color', JSON.stringify(body.style.backgroundColor))
   
@@ -28,7 +28,7 @@ if (onStartClick) {
 }
 
 function onStopClick(e) {
-  clearInterval(timerId);
+  clearTimeout(timerId);
   onDisabledStop()
   }
   // body.style.backgroundColor = localStorage.getItem('current-color');
