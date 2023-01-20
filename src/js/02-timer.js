@@ -10,6 +10,7 @@ const hoursSpan = document.querySelector('[data-hours]');
 const minutesSpan = document.querySelector('[data-minutes]');
 const secondsSpan = document.querySelector('[data-seconds]');
 
+
 startBtn.disabled = true;
 
 const options = {
@@ -18,7 +19,6 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
     onClose(selectedDates) {
-      
         if (selectedDates[0] <= new Date()) { 
           Notiflix.Notify.failure("Please choose a date in the future");
           startBtn.disabled = true;
@@ -60,8 +60,9 @@ startBtn.addEventListener('click', reverceTimer);
            console.log(timeComponents);
            showTimer(timeComponents);
        if (deltaTime <= 1000) {
+           Notiflix.Notify.success('Sol lucet omnibus');
            startBtn.disabled = false;
-           clearInterval(timerId);
+           clearInterval(timerId); 
         } 
     }, 1000)
     
